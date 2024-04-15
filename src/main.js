@@ -3,6 +3,7 @@ import 'bootstrap'
 import 'papaparse/papaparse.js'
 import 'chart.js'
 
+
 import { createApp } from 'vue'
 import App from './App.vue'
 

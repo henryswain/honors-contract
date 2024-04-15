@@ -9,7 +9,8 @@
     const props = defineProps({
         labels: Array, // x-axis labels
         datasets: Array, // data to be displayed
-        chartLabel: String // chart label
+        chartLabel: String, // chart label
+        amountOfSocMediaUse: String
     });
 
     // holds chart object
@@ -22,11 +23,30 @@
             // 'thisChart' matches id of div in template
             document.getElementById('thisChart'),
             {
-                type: 'line',
+                type: 'bar',
                 options: {
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: "percentage of participants",
+                                font: {
+                                    size: 24
+                                }
+                            }
+                        }
+                    },
                     responsive: true,
                     tooltip: {
-                        enabled: true
+                        enabled: true,
+
+                        callbacks: {
+                            label: (context) => {
+                                const index = context.dataIndex;
+                                const customLabels = ["< 4 hours of sleep", "4 - 6 hours of sleep", "7 - 8 hours of sleep", "> 8 hours of sleep"]
+                                return `${customLabels[index] || labels[index]}: ${context.dataset.data[index]}`
+                            }
+                        }
                     },
                     plugins: {
                         legend: {
@@ -34,7 +54,16 @@
                         },
                         title: {
                             display: true,
-                            text: props.chartLabel
+                            text: props.chartLabel,
+                            font: {
+                                size: 40
+                            }
+                        },
+                        datalabels: {
+                            enabled: true,
+                            anchor: 'end', // Place labels on the right side of the bar
+                            align: 'top',  // Align labels to the top of the bar
+                 
                         }
                     }
                 },
