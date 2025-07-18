@@ -1,6 +1,9 @@
-# vue-csv
+# Honors Contract - Graphical Representation of the relationship between amount of sleep, anxiety, and depression and social media use in Bangledesh based on dataset from ELSEVIER 
+https://www.sciencedirect.com/science/article/pii/S2352340921008684#ecom0001
 
-This template should help get you started developing with Vue 3 in Vite.
+![gif recording of app demonstration](/src/assets/bangladesh-app-demonstration.gif?raw=true)
+
+# To get started with this app:
 
 ## Recommended IDE Setup
 

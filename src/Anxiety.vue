@@ -267,7 +267,7 @@ function showData(parsedData) {
     <BarChart_Sleep_And_SocialMedia
       :labels="labelsforAnxiety"
       :datasets="filteredChartData"
-      :chartLabel="amountOfSocMediaUse"
+      chartLabel="anxiety"
       :amount="amountOfSocMediaUse"
     />
     <div class="row">

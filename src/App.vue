@@ -22,10 +22,10 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               
-              <a :class="{'nav-link active': current == 'Home', 'nav-link': current != 'Home'}" aria-current="page" @click="current = 'Home'">Home</a>
-              <a :class="{'nav-link active': current == 'Sleep', 'nav-link': current != 'Sleep'}" aria-current="page" @click="current = 'Sleep'">Sleep</a>
-              <a :class="{'nav-link active': current == 'Anxiety', 'nav-link': current != 'Anxiety'}" aria-current="page" @click="current = 'Anxiety'">Anxiety</a>
-              <a :class="{'nav-link active': current == 'Depression', 'nav-link': current != 'Depression'}" aria-current="page" @click="current = 'Depression'">Depression</a>
+              <a :class="{'nav-link active': current == 'Home', 'nav-link': current != 'Home'}" aria-current="page" @click="current = 'Home'" style="cursor: pointer; color: white">Home</a>
+              <a :class="{'nav-link active': current == 'Sleep', 'nav-link': current != 'Sleep'}" aria-current="page" @click="current = 'Sleep'" style="cursor: pointer; color: white">Sleep</a>
+              <a :class="{'nav-link active': current == 'Anxiety', 'nav-link': current != 'Anxiety'}" aria-current="page" @click="current = 'Anxiety'" style="cursor: pointer; color: white">Anxiety</a>
+              <a :class="{'nav-link active': current == 'Depression', 'nav-link': current != 'Depression'}" aria-current="page" @click="current = 'Depression'" style="cursor: pointer; color: white">Depression</a>
             </div>
           </div>
         </div>

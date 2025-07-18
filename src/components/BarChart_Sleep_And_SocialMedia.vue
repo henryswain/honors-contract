@@ -9,7 +9,7 @@
     const props = defineProps({
         labels: Array, // x-axis labels
         datasets: Array, // data to be displayed
-        //chartLabel: String, // chart label
+        chartLabel: String, // chart label
         amount: String
 
     });
@@ -44,7 +44,7 @@
                         x: {
                             title: {
                                 display: true,
-                                text: `Sleep categories of participants with ${props.amount}`,
+                                text: `${props.chartLabel} categories of participants with ${props.amount}`,
                                 font: {
                                     size: 36
                                 }
@@ -74,7 +74,7 @@
                         },
                         title: {
                             display: true,
-                            text: `Amount of sleep when using social media for ${props.amount}`,
+                            text: `Amount of ${props.chartLabel} when using social media for ${props.amount}`,
                             font: {
                                 size: 40
                             }
@@ -106,8 +106,8 @@
     async function updateChart() {
         // updates data for chart and re-renders
         chartObj.data.datasets = props.datasets;
-        chartObj.options.scales.x.title.text = `Sleep categories of participants with ${props.amount}`;
-        chartObj.options.plugins.title.text = `Amount of sleep when using social media for ${props.amount}`;
+        chartObj.options.scales.x.title.text = `${props.chartLabel} categories of participants with ${props.amount}`;
+        chartObj.options.plugins.title.text = `Amount of ${props.chartLabel} when using social media for ${props.amount}`;
         chartObj.update();
     }
 

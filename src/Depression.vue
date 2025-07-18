@@ -267,7 +267,7 @@
     <BarChart_Sleep_And_SocialMedia
       :labels="labelsforDepression"
       :datasets="filteredChartData"
-      :chartLabel="amountOfSocMediaUse"
+      chartLabel="depression"
       :amount="amountOfSocMediaUse"
     />
     <div class="row">
