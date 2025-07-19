@@ -23,7 +23,7 @@ const loaded = ref(false);
 
 // location of data
 
-const dataFile = "./src/assets/Bangladesh social media mental health dataset.csv";
+const dataFile = "/honors-contract/bangladesh_social_media_mental_health_dataset.csv";
 
 // asynchronously loads data when page is mounted
 onMounted(() => fetch(dataFile)
