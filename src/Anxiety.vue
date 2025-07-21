@@ -3,7 +3,7 @@
 import papaparse from 'papaparse';
 
 
-const labelsforAnxiety = ["wasn't anxious at all in the last 30 days", "was anxious several days in the last 30 days", "was anxious half of the days in the last 30 days", "was nearly every day in the last 30 days"]
+const labelsforAnxiety = [["wasn't anxious", "at all in", "the last 30 days"], ["was anxious", "several days", "in the last 30 days"], ["was anxious", "half of the days", "in the last 30 days"], ["was anxious", "nearly every day", "in the last 30 days"]]
 // bits of vue we are using
 import { ref, onMounted, computed } from 'vue';
 
@@ -63,8 +63,9 @@ function showData(parsedData) {
     numberOfRows.push(i);
   }
 
-// creates an object with the counts of each amount of time on social media with sleep less than 4 hours
   if (amountOfSocMediaUse.value == 'less than 1 hour') {
+
+    // creates an object with the counts for each anxiety categorory with social media use less than 1 hour
 
     let countsForAnxietyWithSocLessThan1 = {"1": 0, "2": 0, "3": 0, "4": 0};
     for (let i of numberOfRows) {
@@ -111,6 +112,7 @@ function showData(parsedData) {
   }
 
   else if (amountOfSocMediaUse.value == "1 - 3 hours") {
+    // creates an object with the counts for each anxiety categorory with social media use between 1 and 3 hours
 
 
     let countsForAnxietyWithSoc1to3 = {"1": 0, "2": 0, "3": 0, "4": 0};
@@ -162,6 +164,7 @@ function showData(parsedData) {
 
 
   else if (amountOfSocMediaUse.value == "3 - 5 hours") {
+    // creates an object with the counts for each anxiety categorory with social media use between 3 and 5 hours
 
       
     let countsForAnxietyWithSoc3to5 = {"1": 0, "2": 0, "3": 0, "4": 0};
@@ -207,8 +210,8 @@ function showData(parsedData) {
   } 
 
 
-
   else if (amountOfSocMediaUse.value == "more than 5 hours") {
+    // creates an object with the counts for each anxiety categorory with social media use more than 5 hours
 
       
     let countsForAnxietyWithSocMoreThan5 = {"1": 0, "2": 0, "3": 0, "4": 0};
@@ -262,23 +265,25 @@ function showData(parsedData) {
 </script>
 
 <template>
-  <div class="container">
-
+    <!-- button group for handling social media category chagnes-->
+    <div class="row justify-content-center mt-2">
+      <div class="col-3">
+        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('less than 1 hour')">Less than 1 hour</button>
+      </div>
+      <div class="col-3">
+        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('1 - 3 hours')">1 - 3 hours</button>
+      </div>
+      <div class="col-3">
+        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('3 - 5 hours')">3 - 5 hours</button>
+      </div>
+      <div class="col-3">
+        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('more than 5 hours')">More than 5 hours</button>
+      </div>
+    </div>
     <BarChart_Sleep_And_SocialMedia
       :labels="labelsforAnxiety"
       :datasets="filteredChartData"
       chartLabel="anxiety"
       :amount="amountOfSocMediaUse"
     />
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col">
-        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('less than 1 hour')">Less than 1 hour</button>
-        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('1 - 3 hours')">1 - 3 hours</button>
-        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('3 - 5 hours')">3 - 5 hours</button>
-        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('more than 5 hours')">More than 5 hours</button>
-      </div>
-      <div class="col"></div>
-    </div>
-  </div>
 </template>

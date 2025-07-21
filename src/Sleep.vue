@@ -63,8 +63,8 @@ function showData(parsedData) {
     numberOfRows.push(i);
   }
 
-// creates an object with the counts of each amount of time on social media with sleep less than 4 hours
   if (amountOfSocMediaUse.value == 'less than 1 hour') {
+    // creates an object with the counts for each sleep categorory with social media use less than 1 hour
 
     let countsForSleepWithSocLessThan1 = {"<4": 0, "4-6": 0, "7-8": 0, ">8": 0};
     for (let i of numberOfRows) {
@@ -111,6 +111,7 @@ function showData(parsedData) {
   }
 
   else if (amountOfSocMediaUse.value == "1 - 3 hours") {
+    // creates an object with the counts for each sleep categorory with social media use between 1 and 3 hours
 
 
     let countsForSleepWithSoc1to3 = {"<4": 0, "4-6": 0, "7-8": 0, ">8": 0};
@@ -162,6 +163,7 @@ function showData(parsedData) {
 
 
   else if (amountOfSocMediaUse.value == "3 - 5 hours") {
+    // creates an object with the counts for each sleep categorory with social media use between 3 and 5 hour
 
       
     let countsForSleepWithSoc3to5 = {"<4": 0, "4-6": 0, "7-8": 0, ">8": 0};
@@ -210,7 +212,8 @@ function showData(parsedData) {
 
   else if (amountOfSocMediaUse.value == "more than 5 hours") {
 
-      
+    // creates an object with the counts for each sleep categorory with social media use more than 5 hours
+
     let countsForSleepWithSocMoreThan5 = {"<4": 0, "4-6": 0, "7-8": 0, ">8": 0};
     for (let i of numberOfRows) {
       if (freqTimeOnSocMediaWithDup[i] === "More than 5 hours") {
@@ -262,23 +265,25 @@ function showData(parsedData) {
 </script>
 
 <template>
-  <div class="container">
-    <!-- :chartLabel="amountOfSocMediaUse" -->
+    <!-- button group for handling social media category chagnes-->
+    <div class="row justify-content-center mt-2">
+        <div class="col-3">
+          <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('less than 1 hour')">Less than 1 hour</button>
+        </div>
+        <div class="col-3">
+          <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('1 - 3 hours')">1 - 3 hours</button>
+        </div>
+        <div class="col-3">
+          <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('3 - 5 hours')">3 - 5 hours</button>
+        </div>
+        <div class="col-3">
+          <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('more than 5 hours')">More than 5 hours</button>
+        </div>
+    </div>
     <BarChart_Sleep_And_SocialMedia
       :labels="labelsforSleep"
       :datasets="filteredChartData"
       chartLabel="sleep"
       :amount="amountOfSocMediaUse"
     />
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col">
-        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('less than 1 hour')">Less than 1 hour</button>
-        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('1 - 3 hours')">1 - 3 hours</button>
-        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('3 - 5 hours')">3 - 5 hours</button>
-        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('more than 5 hours')">More than 5 hours</button>
-      </div>
-      <div class="col"></div>
-    </div>
-  </div>
 </template>
