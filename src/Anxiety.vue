@@ -262,22 +262,115 @@ function showData(parsedData) {
     }
   );
 
+
+// update button classes onclick
+const updateButtonClasses = (category) => {
+
+  if (category == "<1") {
+    // update <1 cateogoy
+    document.getElementById("<1").classList.remove("btn-primary")
+    document.getElementById("<1").classList.remove("btn-outline-primary")
+    document.getElementById("<1").classList.add("btn-primary")
+
+    // update 1-3 cateogoy
+    document.getElementById("1-3").classList.remove("btn-primary")
+    document.getElementById("1-3").classList.remove("btn-outline-primary")
+    document.getElementById("1-3").classList.add("btn-outline-primary")
+
+    // update 3-5 cateogoy
+    document.getElementById("3-5").classList.remove("btn-primary")
+    document.getElementById("3-5").classList.remove("btn-outline-primary")
+    document.getElementById("3-5").classList.add("btn-outline-primary")
+
+    // update >5 cateogoy
+    document.getElementById(">5").classList.remove("btn-primary")
+    document.getElementById(">5").classList.remove("btn-outline-primary")
+    document.getElementById(">5").classList.add("btn-outline-primary")
+  }
+
+
+  else if (category == "1-3") {
+    // update 1-3 cateogoy
+    document.getElementById("1-3").classList.remove("btn-primary")
+    document.getElementById("1-3").classList.remove("btn-outline-primary")
+    document.getElementById("1-3").classList.add("btn-primary")
+
+    // update <1 cateogoy
+    document.getElementById("<1").classList.remove("btn-primary")
+    document.getElementById("<1").classList.remove("btn-outline-primary")
+    document.getElementById("<1").classList.add("btn-outline-primary")
+
+    // update 3-5 cateogoy
+    document.getElementById("3-5").classList.remove("btn-primary")
+    document.getElementById("3-5").classList.remove("btn-outline-primary")
+    document.getElementById("3-5").classList.add("btn-outline-primary")
+
+    // update >5 cateogoy
+    document.getElementById(">5").classList.remove("btn-primary")
+    document.getElementById(">5").classList.remove("btn-outline-primary")
+    document.getElementById(">5").classList.add("btn-outline-primary")
+  }
+
+  if (category == "3-5") {
+    // update 3-5 cateogoy
+    document.getElementById("3-5").classList.remove("btn-primary")
+    document.getElementById("3-5").classList.remove("btn-outline-primary")
+    document.getElementById("3-5").classList.add("btn-primary")
+
+    // update 1-3 cateogoy
+    document.getElementById("1-3").classList.remove("btn-primary")
+    document.getElementById("1-3").classList.remove("btn-outline-primary")
+    document.getElementById("1-3").classList.add("btn-outline-primary")
+
+    // update <1 cateogoy
+    document.getElementById("<1").classList.remove("btn-primary")
+    document.getElementById("<1").classList.remove("btn-outline-primary")
+    document.getElementById("<1").classList.add("btn-outline-primary")
+
+    // update >5 cateogoy
+    document.getElementById(">5").classList.remove("btn-primary")
+    document.getElementById(">5").classList.remove("btn-outline-primary")
+    document.getElementById(">5").classList.add("btn-outline-primary")
+  }
+
+  if (category == ">5") {
+    // update >5 cateogoy
+    document.getElementById(">5").classList.remove("btn-primary")
+    document.getElementById(">5").classList.remove("btn-outline-primary")
+    document.getElementById(">5").classList.add("btn-primary")
+
+    // update 1-3 cateogoy
+    document.getElementById("1-3").classList.remove("btn-primary")
+    document.getElementById("1-3").classList.remove("btn-outline-primary")
+    document.getElementById("1-3").classList.add("btn-outline-primary")
+
+    // update 3-5 cateogoy
+    document.getElementById("3-5").classList.remove("btn-primary")
+    document.getElementById("3-5").classList.remove("btn-outline-primary")
+    document.getElementById("3-5").classList.add("btn-outline-primary")
+
+    // update <1 cateogoy
+    document.getElementById("<1").classList.remove("btn-primary")
+    document.getElementById("<1").classList.remove("btn-outline-primary")
+    document.getElementById("<1").classList.add("btn-outline-primary")
+  }
+}
 </script>
 
 <template>
     <!-- button group for handling social media category chagnes-->
     <div class="row justify-content-center mt-2">
       <div class="col-3">
-        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('less than 1 hour')">Less than 1 hour</button>
+        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('less than 1 hour'); updateButtonClasses('<1')" id="<1">Less than 1 hour</button>
       </div>
       <div class="col-3">
-        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('1 - 3 hours')">1 - 3 hours</button>
+        <button type="button" class="btn btn-outline-primary" @click="loadFileWithUpdatedVar('1 - 3 hours'); updateButtonClasses('1-3')" id="1-3">1 - 3 hours</button>
       </div>
       <div class="col-3">
-        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('3 - 5 hours')">3 - 5 hours</button>
+        <button type="button" class="btn btn-outline-primary" @click="loadFileWithUpdatedVar('3 - 5 hours'); updateButtonClasses('3-5')" id="3-5">3 - 5 hours</button>
       </div>
       <div class="col-3">
-        <button type="button" class="btn btn-primary" @click="loadFileWithUpdatedVar('more than 5 hours')">More than 5 hours</button>
+        <button type="button" class="btn btn-outline-primary" @click="loadFileWithUpdatedVar('more than 5 hours'); updateButtonClasses('>5')" id=">5">More than 5 hours</button>
       </div>
     </div>
     <BarChart_Sleep_And_SocialMedia
