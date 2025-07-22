@@ -5,16 +5,15 @@
     import { onMounted, onUpdated, ref, nextTick, computed} from 'vue';
 
     const screenSize = ref("")
-    window.addEventListener('resize', handleScreenChange)
 
 
-function handleScreenChange() {
+    function handleScreenChange() {
     if (window.innerWidth <= 480) {
         screenSize.value = "x-small"
     }
-    else if (window.innerWidth >= 481 && window.innerWidth <= 768) {
+    else if ((window.innerWidth >= 481) && (window.innerWidth <= 768)) {
         screenSize.value = "small";
-    } else if (window.innerWidth > 768 && window.innerWidth <= 1279) {
+    } else if ((window.innerWidth > 768) && (window.innerWidth <= 1279)) {
         screenSize.value = "medium";
     } else {
         screenSize.value = "large";
@@ -69,7 +68,7 @@ function handleScreenChange() {
                                 display: true,
                                 text: (screenSize.value == "small" || screenSize.value == "x-small") ? ["percentage of ", "participants"] : "percentage of participants",
                                 font: {
-                                    size: 24
+                                    size: (screenSize.value === "x-small") ? 12 : ((screenSize.value === "small") ? 16 : (screenSize.value === "medium" ? 20 :24))
                                 }
                             },
                             min: 0,
@@ -80,17 +79,13 @@ function handleScreenChange() {
                                 display: true,
                                 text: `${props.chartLabel} categories of participants with ${props.amount}`,
                                 font: {
-                                    size: 24
-                                    // size: (screenSize.value == "small") ? 9 : ((screenSize.value == "medum") ? 16 : 24)
+                                    size: (screenSize.value === "x-small") ? 12 : ((screenSize.value === "small") ? 16 : (screenSize.value === "medium" ? 24 : 28))
                                 }
                             },
                             ticks: {
                                 autoSkip: false,
-                                // maxRotation: ((screenSize.value == "x-small") ? 90 : undefined),
-                                // minRotation: ((screenSize.value == "small" || screenSize.value == "x-small") ? 50 : undefined),
                                 font: {
-                                    size: 12
-                                    // size: (screenSize.value == "small") ? 4 : ((screenSize.value == "medum") ? 6 : 12)
+                                    size: (screenSize.value === "x-small") ? 8 : ((screenSize.value === "small") ? 12 : (screenSize.value === "medium" ? 16 : 20))
                                 }
                             }
                         },
@@ -122,8 +117,7 @@ function handleScreenChange() {
                             display: true,
                             text: `Amount of ${props.chartLabel} when using social media for ${props.amount}`,
                             font: {
-                                size: 40
-                                // size: (screenSize.value == "small") ? 20 : ((screenSize.value == "medum") ? 30 : 40)
+                                size: (screenSize.value === "x-small") ? 12 : ((screenSize.value === "small") ? 16 : (screenSize.value === "medium" ? 24 : 28))
                             }
                         },
                         datalabels: {
@@ -144,8 +138,10 @@ function handleScreenChange() {
 
     // when the page loads, we create a chart
     onMounted(() => {
-            // Initial check
+        window.addEventListener('resize', handleScreenChange)
+        // Initial check
         handleScreenChange();
+
         // calls asynchronous function to create chart
         createChart();
     }        
